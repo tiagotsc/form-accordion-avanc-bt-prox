@@ -1,0 +1,170 @@
+/*
+    ARQUIVO CRIADO PARA PERSONALIZAR LAYOUT
+*/
+
+#divMain .actions{
+    margin-top:10px;
+}
+
+.tabela-div{
+    margin-top: 10px;
+}
+
+label{
+    display: block;
+}
+
+/* JQUERY VALIDADE - ERRO DE PREENCHIMENTO */
+label.error { 
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid #fbeed5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    font-weight: bold;
+}
+
+/* JQUERY VALIDADE - ERRO DE PREENCHIMENTO - NOVA VALIDAÇÃO */
+/*input.error,select.error{
+	border:1px solid #FF0000 !important; 
+}
+label.error,div.error{
+    font-weight:normal;
+    color:#FF0000 !important;
+}*/
+
+/* TABELA - ALTERNA AS CORES DAS LINHAS IMPÁRES E PARES */
+table > tbody > tr:nth-child(even) > td,
+table > tbody > tr:nth-child(even) > th {
+    background-color:#CCC;
+}
+
+/* TABELA - ALINHAMENTO CENTRALIZADO DA ÚLTIMA COLUNA DA TABELA */
+table tbody tr td:last-child{
+    text-align: center;
+}
+
+/* TABELA - ALINHAMENTO CENTRALIZADO DA ÚLTIMA COLUNA DA TABELA */
+table th:last-child{
+    text-align: center;
+}
+
+/* AUMENTA E DÁ UM ESPAÇAMENTO DIREITO NOS ICONES */
+.glyphicon{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* DESTACA A PÁGINA ATIVA DA PAGINAÇÃO */
+#paginacaoAtiva{
+    color: black;
+}
+
+/* DEIXA VERMELHO O ASTERISTICO DO CAMPO OBRIGATÓRIO */
+.obrigatorio{
+    color: red;
+}
+
+/* ESPAÇAMENTO ESQUERDO NOS SPAN DA LISTA DE RELATÓRIOS */
+.spanRelatorio{
+    padding-left:10px;
+}
+
+#pInstrucoes{
+    font-size: 13px;
+}
+
+#linhaExcluida{
+    color: red;
+}
+
+/* ESTILIZA OS H5 DOS GRÁFICOS */
+.tituloGrafico{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* LINK DO DESCRIVO DE ALGUMA FUNCIONALIDADE */
+.descritivo_manual{
+    float: right;
+    font-weight: normal;
+}
+
+#idPermissoes{
+    list-style-type: none;
+}
+
+.linkDireita{
+    float: right;
+}
+
+.sublinhado{
+    text-decoration:  underline;
+}
+
+#usuario{
+    text-align: right; 
+    padding: 10px 110px 10px 10px;
+}
+
+#lista_perfis_relatorio{
+    overflow:auto; 
+    height: 150px;
+}
+
+/* Botões de remoção */
+.removeEspec{
+    background-color: #1E90FF;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid #4169E1;
+    border-radius: 3px;
+    color: #F0F8FF;
+    font-weight: bold;
+}
+
+.add{
+    margin-top: 8px;
+}
+
+#modalRegEspeciais .modal-dialog,#modalRepLegais .modal-dialog
+{
+  width: 80%;
+}
+
+.form-control{
+    font-size: 15px; 
+    font-weight: bold; 
+    padding-left: 0px; 
+    color: #1c94c4;
+}
+
+.btn{
+    margin-top: 10px;
+}
+
+.btnMarginRight{
+    margin-right: 10px;
+}
+
+#dadosUser{
+    font-size: 11px;
+}
+
+#olaUser{
+    padding-top: 10px; 
+    padding-left: 0px;
+}
+
+#optionUser{
+    padding-top: 18px;
+}
+
+#btn_sair{
+    padding-bottom: 10px;
+}

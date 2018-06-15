@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Formulário passo a passo avançado</title>
+    
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/modern-business.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/personalizado.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- jQuery UI -->
+    <script src="assets/js/jquery-ui/jquery-ui.js"></script>
+    <link href="assets/js/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+    <!-- Bootstrap Core JavaScript -->
+    <!--<script src="assets/js/bootstrap.min.js"></script>-->
+    
+    <!-- Jquery Validate -->
+    <script src="assets/js/jquery.validate.min.js"></script>
+    
+    <!-- Jquery Mask -->
+    <script src="assets/js/jquery.mask.min.js"></script>
+    
+    <!-- Jquery form wizard -->
+    <!--<script src="assets/js/form-wizard/jquery.form.wizard.js"></script>-->
+  <style>
+  .custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+  </style>
+</head>
+
+<body style="padding-top: 0px;">
+    <div id="dadosUser" class="container">
+        <div id="olaUser" class="col-md-6">
+            <strong>Ol&aacute;, Tiago Silva Costa</strong><br />
+            <strong>Este &eacute; seu acesso 123. Acesso anterior em 01/02/2015 &agrave;s 15h35</strong>
+        </div>
+        <div id="optionUser" class="col-md-5 text-right">
+            <a href="#">Meus Dados</a>&nbsp;&nbsp;&nbsp;
+            <a href="#">Trocar Senha</a>&nbsp;&nbsp;&nbsp;
+            <a href="#">Manual</a>                                
+        </div>
+        <div id="btn_sair" class="col-md-1 text-right">
+            <button type="button" onclick="sair()" class="btn btn-success">Sair</button>
+        </div>
+    </div>    
+	<!-- Navigation -->
+    <nav class="navbar navbar-inverse" style="border-radius: 0px;" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Lapido Barbosa & Associados</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="index.html">In&iacute;cio</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle active" data-toggle="dropdown">Pessoa Jur&iacute;dica <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="index.html">Listar</a>
+							</li>
+							<li class="active">
+								<a href="form-empresa.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Representantes legais <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Listar</a>
+							</li>
+							<li>
+								<a href="form-fisica.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projetos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Listar</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contratos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Gerenciar</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir manual</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir com roteiro</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usu&aacute;rios <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Listar</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    <!-- Page Content -->
+    <div class="container">
+
+                <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Cadastrar dados da empresa
+                    <!--<small>Subheading</small>-->
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">In&iacute;cio</a>
+                    </li>
+                    <li class="active">Dados da empresa / Cadastrar dados da empresa</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-md-12"> 
+                <form method="POST" action="http://localhost/laravel/public/foo/bar" accept-charset="UTF-8" id="formEmpresa"><input name="_token" type="hidden" value="fPcrCr7qBt0WjZ7iTbEYafHGEV5gdjTnJDKCo0by">   
+                <div id="accordion">
+                  <h3 class="eleInicio">Dados da Matriz da Empresa / Entidade a ser cadastrada</h3>
+                  <div class="eleInicio">
+                    <div class="col-md-3">
+                        <label for="nr_cnpj">CNPJ*</label>
+                        <input class="form-control cnpj" name="nr_cnpj" type="text" id="nr_cnpj">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nm_razao_social">Raz&atilde;o social*</label>
+                        <input class="form-control" name="nm_razao_social" type="text" id="nm_razao_social">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nm_fantasia">Nome fantasia</label>
+                        <input class="form-control" name="nm_fantasia" type="text" id="nm_fantasia">
+                    </div>
+                    <div class="col-md-1">
+                        <label for="sigla_pjuridica">Sigla*</label>
+                        <input class="form-control" name="sigla_pjuridica" type="text" id="sigla_pjuridica">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nm_site">Site</label>
+                        <input class="form-control" name="nm_site" type="text" id="nm_site">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tx_email_geral">E-mail geral</label>
+                        <input class="form-control" name="tx_email_geral" type="text" id="tx_email_geral">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_tel_princ">Tel. 1*</label>
+                        <input class="form-control telefoneFixo" name="tx_tel_princ" type="text" id="tx_tel_princ">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_tel_sec">Tel. 2</label>
+                        <input class="form-control telefoneFixo" name="tx_tel_sec" type="text" id="tx_tel_sec">
+                    </div>
+                    <div class="col-md-12 text-right">              
+                        <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>
+                        <button type="button" class="btn btn-primary pull-right" onclick='checaValidacao(); $(this).proximoAcoordion(1)'>Avan&ccedil;ar</button>
+                    </div>
+                  </div> 
+                  <h3 class="ocultar eleEndOficial">Endere&ccedil;o Oficial e de atua&ccedil;&atilde;o</h3>
+                  <div class="ocultar eleEndOficial">
+                    <div class="col-md-2">
+                        <label for="tx_cep">CEP*</label>
+                        <input class="form-control cep" name="tx_cep" type="text" id="tx_cep">
+                    </div>
+                    <div class="col-md-8">
+                        <label for="tx_endereco">Logradouro*</label>
+                        <input class="form-control" name="tx_endereco" type="text" id="tx_endereco">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_numero">N&ordm;*</label>
+                        <input class="form-control" name="tx_numero" type="text" id="tx_numero">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tx_complemento">Comp.</label>
+                        <input class="form-control" name="tx_complemento" type="text" id="tx_complemento">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_bairro">Bairro*</label>
+                        <input class="form-control" name="tx_bairro" type="text" id="tx_bairro">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_cidade">Cidade*</label>
+                        <select class="form-control" id="tx_cidade" name="tx_cidade"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="sg_uf">UF*</label>
+                        <select class="form-control" id="sg_uf" name="sg_uf"><option value="L">RJ</option><option value="S">SP</option></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="nm_contato">Contato</label>
+                        <input class="form-control" name="nm_contato" type="text" id="nm_contato">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_tel_com">Telefone</label>
+                        <input class="form-control telefoneFixo" name="tx_tel_com" type="text" id="tx_tel_com">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_cel_com">Celular</label>
+                        <input class="form-control telefoneCelular" name="tx_cel_com" type="text" id="tx_cel_com">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_email">E-mail</label>
+                        <input class="form-control" name="tx_email" type="text" id="tx_email">
+                    </div>
+                    <div class="col-md-12">
+                        <div><strong>O endere&ccedil;o oficial &eacute; o mesmo de atua&ccedil;&atilde;o e de correspond&ecirc;ncia?</strong></div>
+                        <input class="confirOficial" checked="checked" name="confirOficial" type="radio" value="S"><strong>Sim</strong>
+                        <input class="confirOficial" name="confirOficial" type="radio" value="N"><strong>N&atilde;o</strong>
+                        
+                    </div>
+                    <div id="1avancarConfirEnd" class="col-md-12 text-right">
+                        <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>
+                        <button type="button" class="btn btn-primary pull-right" id="addRulesEnderecoOficial" onclick='checaValidacao(); $(this).proximoAcoordion(2)'>Avan&ccedil;ar</button>              
+                    </div>
+                    <div id="divEndAtuacao">
+                        <div class="col-md-12"><strong>Endere&ccedil;o de atua&ccedil;&atilde;o e/ou de Correspond&ecirc;ncia da Empresa / Entidade</strong></div>
+                        <div class="col-md-2">
+                            <label for="tx_cep_atua">CEP*</label>
+                            <input class="form-control cep" name="tx_cep_atua" type="text" id="tx_cep_atua">
+                        </div>
+                        <div class="col-md-8">
+                            <label for="tx_endereco_atua">Logradouro*</label>
+                            <input class="form-control generica" name="tx_endereco_atua" type="text" id="tx_endereco_atua">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="tx_numero_atua">N&ordm;*</label>
+                            <input class="form-control generica" name="tx_numero_atua" type="text" id="tx_numero_atua">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tx_complemento_atua">Comp.</label>
+                            <input class="form-control generica" name="tx_complemento_atua" type="text" id="tx_complemento_atua">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_bairro_atua">Bairro*</label>
+                            <input class="form-control generica" name="tx_bairro_atua" type="text" id="tx_bairro_atua">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_cidade_atua">Cidade*</label>
+                            <select class="form-control" id="tx_cidade_atua" name="tx_cidade_atua"><option value="" selected="selected"></option><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="sg_uf_atua">UF*</label>
+                            <select class="form-control" id="sg_uf_atua" name="sg_uf_atua"><option value="L">RJ</option><option value="S">SP</option></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="nm_contato_atua">Contato*</label>
+                            <input class="form-control generica" name="nm_contato_atua" type="text" id="nm_contato_atua">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_tel_com_atua">Telefone</label>
+                            <input class="form-control telefoneFixo" name="tx_tel_com_atua" type="text" id="tx_tel_com_atua">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_cel_com_atua">Celular</label>
+                            <input class="form-control telefoneCelular" name="tx_cel_com_atua" type="text" id="tx_cel_com_atua">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_email_atua">E-mail</label>
+                            <input class="form-control generica" name="tx_email_atua" type="text" id="tx_email_atua">
+                        </div>
+                        <div id="2avancarConfirEnd" class="col-md-12 text-right">
+                          <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>
+                          <button type="button" class="btn btn-primary pull-right" onclick='checaValidacao(); $(this).proximoAcoordion(2)'>Avan&ccedil;ar</button>              
+                        </div>
+                    </div>
+                  </div> 
+                  <h3 class="ocultar eleInscricao">Inscri&ccedil;&otilde;es Estadual e Municipal e Registro na Junta Comercial ou Cart&oacute;rio de Registro Civil de Pessoas Jur&iacute;dicas e Registros Especiais</h3>
+                  <div class="ocultar eleInscricao">
+                    <div class="col-md-12">
+                        <div><strong>A pessoa jur&iacute;dica est&aacute; registrada na:</strong></div>
+                        <input class="reg_pjuridica" onclick="limpaCartorioOrgao()" name="reg_pjuridica" type="radio" value="J"><strong>Junta Comercial</strong>&nbsp;
+                        <input class="reg_pjuridica" onclick="limpaJuntaOrgao()" name="reg_pjuridica" type="radio" value="C"><strong>Cart&oacute;rio de Registros de Pessoas Jur&iacute;dicas</strong>&nbsp;
+                        <input class="reg_pjuridica" onclick="limpaJuntaCartorio()" name="reg_pjuridica" type="radio" value="O"><strong>Outro &oacute;rg&atilde;o</strong>
+                    </div>
+                    <div id="juntaComercial">                      
+                        <div class="col-md-8">
+                        <label for="tx_nire">NIRE</label>
+                        <input class="form-control" name="tx_nire" type="text" id="tx_nire">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="tx_uf_nire">UF</label>
+                            <select class="form-control" id="tx_uf_nire" name="tx_uf_nire"><option value="L">RJ</option><option value="S">SP</option></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="data_jc_pjuridica">Data*</label>
+                            <input class="form-control data" name="data_jc_pjuridica" type="text" id="data_jc_pjuridica">
+                        </div>
+                    </div>
+                    <div id="crpj">
+                        <div class="col-md-4">
+                            <label for="numero_crpj_pjuridica">N&uacute;mero*</label>
+                            <input class="form-control" name="numero_crpj_pjuridica" type="text" id="numero_crpj_pjuridica">
+                        </div> 
+                        <div class="col-md-3">
+                            <label for="data_crpj_pjuridica">Data do registro*</label>
+                            <input class="form-control data" name="data_crpj_pjuridica" type="text" id="data_crpj_pjuridica">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cidade_crpj_pjuridica">Cidade*</label>
+                            <select class="form-control" id="cidade_crpj_pjuridica" name="cidade_crpj_pjuridica"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="uf_crpj_pjuridica">UF*</label>
+                            <select class="form-control" id="uf_crpj_pjuridica" name="uf_crpj_pjuridica"><option value="L">RJ</option><option value="S">SP</option></select>
+                        </div>
+                    </div>
+                    <div id="orgao">
+                        <div class="col-md-4">
+                            <label for="nome_orgao">Nome do org&atilde;o</label>
+                            <input class="form-control" name="nome_orgao" type="text" id="nome_orgao">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cidade_orgao">Cidade</label>
+                            <select class="form-control" id="cidade_orgao" name="cidade_orgao"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                        </div>
+                        <div class="col-md-1">
+                            <label for="uf_orgao">UF</label>
+                            <select class="form-control" id="uf_orgao" name="uf_orgao"><option value="L">RJ</option><option value="S">SP</option></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="numero_orgao">N&uacute;mero</label>
+                            <input class="form-control" name="numero_orgao" type="text" id="numero_orgao">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="data_orgao">Data</label>
+                            <input class="form-control data" name="data_orgao" type="text" id="data_orgao">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_inscr_est">I.E.</label>
+                        <input class="form-control" name="tx_inscr_est" type="text" id="tx_inscr_est">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_uf_inscr_est">UF</label>
+                        <select class="form-control" id="tx_uf_inscr_est" name="tx_uf_inscr_est"><option value="L">RJ</option><option value="S">SP</option></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_inscr_mun">I.M.</label>
+                        <input class="form-control" name="tx_inscr_mun" type="text" id="tx_inscr_mun">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_municipio_inscr_mun">Munic&iacute;pio</label>
+                        <input class="form-control" name="tx_municipio_inscr_mun" type="text" id="tx_municipio_inscr_mun">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_uf_inscr_mun">UF</label>
+                        <select class="form-control" id="tx_uf_inscr_mun" name="tx_uf_inscr_mun"><option value="L">RJ</option><option value="S">SP</option></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_inscr_crcpj">CRCPJ</label>
+                        <input class="form-control" name="tx_inscr_crcpj" type="text" id="tx_inscr_crcpj">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="dt_registro_crcpj">Data</label>
+                        <input class="form-control data" name="dt_registro_crcpj" type="text" id="dt_registro_crcpj">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tx_municipio_crcpj">Cidade</label>
+                        <select class="form-control" id="tx_municipio_crcpj" name="tx_municipio_crcpj"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                    </div>
+                    <div class="col-md-1">
+                        <label for="tx_uf_crcpj">UF</label>
+                        <select class="form-control" id="tx_uf_crcpj" name="tx_uf_crcpj"><option value="L">RJ</option><option value="S">SP</option></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cd_nat_juridica">Natureza p. jur&iacute;dica*</label>
+                        <input class="form-control" name="cd_nat_juridica" type="text" id="cd_nat_juridica">
+                    </div>
+                    <div class="col-md-12">
+                        <div><strong>Para explorar ou exercer a atividade de sua empresa &eacute; necess&aacute;rio algum registro especial (licen&ccedil;a, alvar&aacute;, etc)?</strong></div>
+                        <input class="1regEspeciais" name="1regEspeciais" type="radio" value="S"><strong>Sim</strong>
+                        <input class="1regEspeciais" checked="checked" name="1regEspeciais" type="radio" value="N"><strong>N&atilde;o</strong>
+                    </div>
+                    <div id="ele1regEsp">
+                        <div class="col-md-12">
+                            <strong>Registros especiais</strong>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tx_orgao_regclass">Org&atilde;o</label>
+                            <input class="form-control" name="tx_orgao_regclass" type="text" id="tx_orgao_regclass">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tx_municipio_regclass">Cidade</label>
+                            <select class="form-control" id="tx_municipio_regclass" name="tx_municipio_regclass"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="tx_uf_regclass">UF</label>
+                            <select class="form-control" id="tx_uf_regclass" name="tx_uf_regclass"><option value="L">RJ</option><option value="S">SP</option></select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="tx_nome_regclass">Tipo / Nome</label>
+                            <input class="form-control" name="tx_nome_regclass" type="text" id="tx_nome_regclass">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_numreg_regclass">N&uacute;mero</label>
+                            <input class="form-control" name="tx_numreg_regclass" type="text" id="tx_numreg_regclass">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="dt_registro_regclass">Data</label>
+                            <input class="form-control data" name="dt_registro_regclass" type="text" id="dt_registro_regclass">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="dt_validade_regclass">Validade</label>
+                            <input class="form-control data" name="dt_validade_regclass" type="text" id="dt_validade_regclass">
+                        </div>
+                        <div class="col-md-12">
+                            <div><strong>H&aacute; outro registro especial para cadastrar?</strong></div>
+                            <input class="2regEspeciais" name="2regEspeciais" type="radio" value="S"><strong>Sim</strong>
+                            <input class="2regEspeciais" name="2regEspeciais" type="radio" value="N"><strong>N&atilde;o</strong>
+                        </div>
+                    </div>
+                    <div id="ele2regEsp">
+                        <div class="col-md-6">
+                            <label for="tx_orgao_regclass2">Org&atilde;o</label>
+                            <input class="form-control" name="tx_orgao_regclass2" type="text" id="tx_orgao_regclass2">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tx_municipio_regclass2">Cidade</label>
+                            <select class="form-control" id="tx_municipio_regclass2" name="tx_municipio_regclass2"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="tx_uf_regclass2">UF</label>
+                            <select class="form-control" id="tx_uf_regclass2" name="tx_uf_regclass2"><option value="L">RJ</option><option value="S">SP</option></select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="tx_nome_regclass2">Tipo / Nome</label>
+                            <input class="form-control" name="tx_nome_regclass2" type="text" id="tx_nome_regclass2">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="tx_numreg_regclass2">N&uacute;mero</label>
+                            <input class="form-control" name="tx_numreg_regclass2" type="text" id="tx_numreg_regclass2">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="dt_registro_regclass2">Data</label>
+                            <input class="form-control data" name="dt_registro_regclass2" type="text" id="dt_registro_regclass2">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="dt_validade_regclass2">Validade</label>
+                            <input class="form-control data" name="dt_validade_regclass2" type="text" id="dt_validade_regclass2">
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>
+                        <button type="button" class="btn btn-primary pull-right" id="avancarInscricao" onclick='checaValidacao(); $(this).proximoAcoordion(3)'>Avan&ccedil;ar</button>              
+                    </div>
+                  </div>
+                  <h3 class="ocultar eleCnaes">CNAE's Pricipal e Secund&aacute;rios</h3>
+                  <div class="ocultar eleCnaes">
+                    <div id="cnaes" class="col-md-12">
+                        <a href="#cnaes" class="btn btn-success" id="addCnae">Adicionar CNAE secund&aacute;rio</a>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="cd_cnae_princ">Principal</label>
+                        <input class="form-control" name="cd_cnae_princ" type="text" id="cd_cnae_princ">
+                    </div>
+                    <div id="cnaesSecundarios"></div>
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>
+                        <button type="button" class="btn btn-primary pull-right" id="addRulesCnae" onclick='checaValidacao(); $(this).proximoAcoordion(4)'>Avan&ccedil;ar</button>               
+                    </div>
+                  </div>
+                  <h3 class="ocultar eleAtuacao">&Aacute;rea de atua&ccedil;&atilde;o</h3>
+                  <div class="ocultar eleAtuacao">
+                    <div id="areas" class="col-md-12">
+                        <a href="#areas" class="btn btn-success" id="addAreas">Adicionar &Aacute;rea de Atua&ccedil;&atilde;o</a>
+                    </div>
+                    <div class="col-md-2 ui-widget">
+                        <label for="cd_area_atuacao">&Aacute;rea de atua&ccedil;&atilde;o</label>
+                        <select class="form-control" id="cd_area_atuacao" name="cd_area_atuacao"><option value="" selected="selected"></option><option value="1">Engenharia Civil</option><option value="2">Robotica</option><option value="3">Advocacia</option><option value="4">Desenvolvimento de Sistemas</option></select>
+                    </div>
+                    <div class="col-md-12"></div>
+                    <div id="areasDiversas"></div>
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>
+                        <button type="button" class="btn btn-primary pull-right" id="addRulesAreaAtuacao" onclick='checaValidacao(); $(this).proximoAcoordion(5)'>Avan&ccedil;ar</button>              
+                    </div>
+                  </div>
+                  <h3 class="ocultar eleObs">Observa&ccedil;&otilde;es e complementos</h3>
+                  <div class="ocultar eleObs">
+                    <div class="col-md-12">
+                        <label for="tx_anotacoes">Observa&ccedil;&otilde;es</label>
+                        <textarea class="form-control" name="tx_anotacoes" cols="50" rows="10" id="tx_anotacoes"></textarea>
+                    </div>
+                    <div class="col-md-12">		
+                        <input class="btn btn-primary pull-right" id="finalizar" type="submit" value="Finalizar">
+                    </div>
+                  </div>
+                </div>
+				</form>
+            </div>   
+        </div>
+        
+        <!-- /.row -->
+        <!-- /.row -->
+
+        <hr>
+        
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p><a href="#">Termos de Uso</a>&nbsp;&nbsp;<a href="#">Pol&iacute;tica de Privacidade</a>&nbsp;&nbsp;Copyright &copy; 2015 Lapido Barbosa e Associados</p>
+				</div>
+			</div>
+		</footer>
+        
+    </div>
+    <!-- /.container -->
+    
+    <script type="text/javascript">
+    
+function sair(){
+	location.href='index.html';
+}
+	
+// Verifica a validação do formulário e caso não passe submite para mostrar os campos que precisam de validação
+function checaValidacao(proximo){
+    
+    // Não passa na validação
+    if (!$('#formEmpresa').valid()){
+        $('#formEmpresa').submit();
+    }else{
+        $(this).proximoAcoordion(proximo);
+    }
+    
+}
+
+function limpaEndAtuacao(){
+    
+    $("#tx_cep_atua").val('');
+    $("#tx_endereco_atua").val('');
+    $("#tx_numero_atua").val('');
+    $("#tx_complemento_atua").val('');
+    $("#tx_bairro_atua").val('');
+    $("#tx_cidade_atua").val('');
+    $("#sg_uf_atua").val('');
+    $("#nm_contato_atua").val('');
+    $("#tx_tel_com_atua").val('');
+    $("#tx_cel_com_atua").val('');
+    $("#tx_email_atua").val('');
+    
+}
+
+// Limpa o 1ª registros especiais
+function limpa1regEspeciais(){
+    
+    $("#tx_orgao_regclass").val('');
+    $("#tx_municipio_regclass").val('');
+    $("#tx_uf_regclass").val('');
+    $("#tx_nome_regclass").val('');
+    $("#tx_numreg_regclass").val('');
+    $("#dt_registro_regclass").val('');
+    $("#dt_validade_regclass").val('');
+    
+}
+
+// Limpa o 2ª registros especiais
+function limpa2regEspeciais(){
+    
+    $("#tx_orgao_regclass2").val('');
+    $("#tx_municipio_regclass2").val('');
+    $("#tx_uf_regclass2").val('');
+    $("#tx_nome_regclass2").val('');
+    $("#tx_numreg_regclass2").val('');
+    $("#dt_registro_regclass2").val('');
+    $("#dt_validade_regclass2").val('');
+    
+}
+
+// Limpa os campos de Cartórios e Outros orgãos
+function limpaCartorioOrgao(){
+    
+    $("#numero_crpj_pjuridica").val('');
+    $("#data_crpj_pjuridica").val('');
+    $("#cidade_crpj_pjuridica").val('');
+    $("#uf_crpj_pjuridica").val('');
+    $("#nome_orgao").val('');
+    $("#cidade_orgao").val('');
+    $("#uf_orgao").val('');
+    $("#numero_orgao").val('');
+    $("#data_orgao").val('');
+    
+}
+
+// Limpa os campos de Junta comercial e Outros orgãos
+function limpaJuntaOrgao(){
+    
+    $("#tx_nire").val('');
+    $("#tx_uf_nire").val('');
+    $("#data_jc_pjuridica").val('');
+    $("#nome_orgao").val('');
+    $("#cidade_orgao").val('');
+    $("#uf_orgao").val('');
+    $("#numero_orgao").val('');
+    $("#data_orgao").val('');
+    
+}
+
+// Limpa os campos de Junta comercial e Cartório
+function limpaJuntaCartorio(){
+
+    $("#tx_nire").val('');
+    $("#tx_uf_nire").val('');
+    $("#data_jc_pjuridica").val('');
+    $("#numero_crpj_pjuridica").val('');
+    $("#data_crpj_pjuridica").val('');
+    $("#cidade_crpj_pjuridica").val('');
+    $("#uf_crpj_pjuridica").val('');
+    
+}
+
+// Exibe o acoordion informado
+function exibirAcoordion(elemento){
+    $(elemento).css('display', 'block');
+}
+
+function dump(obj) {
+    var out = '';
+    for (var i in obj) {
+        out += i + ": " + obj[i] + "\n";
+    }
+    alert(out);
+}
+
+$(function() {
+    $( "#accordion" ).accordion({
+        collapsible: true, // Habilita a opção de expandir e ocultar ao clicar
+        heightStyle: "content",
+        active: 0
+    });
+});
+
+(function( $ ) {
+$.widget( "custom.combobox", {
+  _create: function() {
+    this.wrapper = $( "<span>" )
+      .addClass( "custom-combobox" )
+      .insertAfter( this.element );
+
+    this.element.hide();
+    this._createAutocomplete();
+    this._createShowAllButton();
+  },
+
+  _createAutocomplete: function() {
+    var selected = this.element.children( ":selected" ),
+      value = selected.val() ? selected.text() : "";
+
+    this.input = $( "<input>" )
+      .appendTo( this.wrapper )
+      .val( value )
+      .attr( "title", "" )
+      .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+      .autocomplete({
+        delay: 0,
+        minLength: 0,
+        source: $.proxy( this, "_source" )
+      })
+      .tooltip({
+        tooltipClass: "ui-state-highlight"
+      });
+
+    this._on( this.input, {
+      autocompleteselect: function( event, ui ) {
+        ui.item.option.selected = true;
+        this._trigger( "select", event, {
+          item: ui.item.option
+        });
+      },
+
+      autocompletechange: "_removeIfInvalid"
+    });
+  },
+
+  _createShowAllButton: function() {
+    var input = this.input,
+      wasOpen = false;
+
+    $( "<a>" )
+      .attr( "tabIndex", -1 )
+      .attr( "title", "Selecione ou digite o que deseja." )
+      .tooltip()
+      .appendTo( this.wrapper )
+      .button({
+        icons: {
+          primary: "ui-icon-triangle-1-s"
+        },
+        text: false
+      })
+      .removeClass( "ui-corner-all" )
+      .addClass( "custom-combobox-toggle ui-corner-right" )
+      .mousedown(function() {
+        wasOpen = input.autocomplete( "widget" ).is( ":visible" );
+      })
+      .click(function() {
+        input.focus();
+
+        // Close if already visible
+        if ( wasOpen ) {
+          return;
+        }
+
+        // Pass empty string as value to search for, displaying all results
+        input.autocomplete( "search", "" );
+      });
+  },
+
+  _source: function( request, response ) {
+    var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+    response( this.element.children( "option" ).map(function() {
+      var text = $( this ).text();
+      if ( this.value && ( !request.term || matcher.test(text) ) )
+        return {
+          label: text,
+          value: text,
+          option: this
+        };
+    }) );
+  },
+
+  _removeIfInvalid: function( event, ui ) {
+
+    // Selected an item, nothing to do
+    if ( ui.item ) {
+      return;
+    }
+
+    // Search for a match (case-insensitive)
+    var value = this.input.val(),
+      valueLowerCase = value.toLowerCase(),
+      valid = false;
+    this.element.children( "option" ).each(function() {
+      if ( $( this ).text().toLowerCase() === valueLowerCase ) {
+        this.selected = valid = true;
+        return false;
+      }
+    });
+
+    // Found a match, nothing to do
+    if ( valid ) {
+      return;
+    }
+
+    // Remove invalid value
+    this.input
+      .val( "" )
+      .attr( "title", value + " Informaç&atilde;o n&atilde;o encontrada." )
+      .tooltip( "open" );
+    this.element.val( "" );
+    this._delay(function() {
+      this.input.tooltip( "close" ).attr( "title", "" );
+    }, 2500 );
+    this.input.autocomplete( "instance" ).term = "";
+  },
+
+  _destroy: function() {
+    this.wrapper.remove();
+    this.element.show();
+  }
+});
+})( jQuery );
+
+$(function() {
+$( "#cd_area_atuacao, #mySelect" ).combobox();
+});
+
+$(document).ready(function(){   
+    
+    $(".ocultar").css('display', 'none');
+      
+    $(this).mascaras();
+    $(this).calendario();
+    
+    //Oculta div ao iniciar
+    $("#divEndAtuacao").css('display', 'none');
+    $("#juntaComercial").css('display', 'none');
+    $("#crpj").css('display', 'none');
+    $("#orgao").css('display', 'none');
+    $("#ele1regEsp").css('display', 'none');
+    $("#ele2regEsp").css('display', 'none');
+    //$("#avancarInscricao").css('display', 'none');
+    
+    $("#addRulesEnderecoOficial").mouseenter(function(){
+        
+            $( "#tx_cep" ).rules( "add", {
+              required: true,
+              minlength: 9,
+              messages: {
+                required: "O campo CEP &eacute; indispens&aacute;vel",
+                minlength: "Informe o CEP completo."
+              }
+            });
+            $( "#tx_endereco" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Logradouro &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#tx_numero" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo N&uacute;mero &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#tx_bairro" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Bairro &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#tx_cidade" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Cidade &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#sg_uf" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Bairro &eacute; indispens&aacute;vel"
+              }
+            });
+            
+            $( "#confirOficial" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "Marque uma op&ccedil;&atilde;o."
+              }
+            });
+        
+    });
+    
+    $("#avancarInscricao").mouseenter(function(){
+        
+        $( ".reg_pjuridica" ).rules( "add", {
+          required: true,
+          messages: {
+            required: "Marque uma op&ccedil;&atilde;o."
+          }
+        });
+        
+        $( "#cd_nat_juridica" ).rules( "add", {
+          required: true,
+          messages: {
+            required: "O campo Natureza Jur&iacute;dica &eacute; indispens&aacute;vel"
+          }
+        });
+        
+        $( ".1regEspeciais" ).rules( "add", {
+          required: true,
+          messages: {
+            required: "Marque uma op&ccedil;&atilde;o."
+          }
+        });
+        
+    });
+    
+    $("#addRulesCnae").mouseenter(function(){
+        
+        $( "#cd_cnae_princ" ).rules( "add", {
+          required: true,
+          messages: {
+            required: "O campo CNAE Principal &eacute; indispens&aacute;vel"
+          }
+        });
+        
+    });
+    
+    $("#addRulesAreaAtuacao").mouseenter(function(){
+        
+        $( "#cd_area_atuacao" ).rules( "add", {
+          required: true,
+          messages: {
+            required: "O campo &Aacute;rea de atua&ccedil;&atilde;o &eacute; indispens&aacute;vel"
+          }
+        });
+        
+    });
+    
+    // Pergunta sobre o endereço oficial
+    $(".confirOficial").click(function(){
+        
+        if($(this).val() == 'N'){
+            
+            $( "#tx_cep_atua" ).rules( "add", {
+              required: true,
+              minlength: 9,
+              messages: {
+                required: "O campo CEP &eacute; indispens&aacute;vel",
+                minlength: "Informe o CEP completo."
+              }
+            });
+            $( "#tx_endereco_atua" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Logradouro &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#tx_numero_atua" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo N&uacute;mero &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#tx_bairro_atua" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Bairro &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#tx_cidade_atua" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo Cidade &eacute; indispens&aacute;vel"
+              }
+            });
+            $( "#sg_uf_atua" ).rules( "add", {
+              required: true,
+              messages: {
+                required: "O campo UF &eacute; indispens&aacute;vel"
+              }
+            });
+            /*
+            $("#tx_cep_atua").addClass("required");
+            $("#tx_endereco_atua").addClass("required");
+            $("#tx_numero_atua").addClass("required");
+            $("#tx_bairro_atua").addClass("required");
+            $("#tx_cidade_atua").addClass("required");
+            $("#sg_uf_atua").addClass("required");
+            */
+            $("#1avancarConfirEnd").css('display', 'none');
+            $("#divEndAtuacao").css('display', 'block');
+        
+        }else{
+            
+            limpaEndAtuacao();
+            
+            $("#formEmpresa").validate();
+            $( "#tx_cep_atua" ).rules( "remove" );
+            $( "#tx_endereco_atua" ).rules( "remove" );
+            $( "#tx_numero_atua" ).rules( "remove" );
+            $( "#tx_bairro_atua" ).rules( "remove" );
+            $( "#tx_cidade_atua" ).rules( "remove" );
+            $( "#sg_uf_atua" ).rules( "remove" );
+            //$("#accordion").accordion("option", "active", 3);
+            //$("#formEmpresa").validate();
+            /*
+            $("#tx_cep_atua").removeClass("required");
+            $("#tx_endereco_atua").removeClass("required");
+            $("#tx_numero_atua").removeClass("required");
+            $("#tx_bairro_atua").removeClass("required");
+            $("#tx_cidade_atua").removeClass("required");
+            $("#sg_uf_atua").removeClass("required");
+            */
+            $("#1avancarConfirEnd").css('display', 'block');
+            $("#divEndAtuacao").css('display', 'none');
+            
+        }
+        
+    });
+    
+    // 1ª Pergunta do registro especial
+    $(".1regEspeciais").click(function(){
+        
+        if($(this).val() == 'N'){
+            
+            //$("#avancarInscricao").css('display', 'block');
+            $("#ele1regEsp").css('display', 'none');
+            $("#ele2regEsp").css('display', 'none');
+            
+            limpa1regEspeciais();
+            limpa2regEspeciais();
+            
+        }else{
+            
+            //$("#avancarInscricao").css('display', 'none');
+            $("#ele1regEsp").css('display', 'block');
+            
+            $('input[name=2regEspeciais][value=N]').prop("checked",true);
+            // Se a 2ª pergunta estiver marcada como sim abre o 2ª bloco
+            /*if($("input[name='2regEspeciais']:checked").val() == 'S'){
+                $("#ele2regEsp").css('display', 'block');
+            }*/
+            
+            limpa2regEspeciais();
+            
+        }
+        
+    });
+    
+    // 2ª Pergunta do registro especial
+    $(".2regEspeciais").click(function(){
+        
+        if($(this).val() == 'N'){
+            
+            $("#ele2regEsp").css('display', 'none');
+            
+            limpa2regEspeciais();
+            
+        }else{
+            
+            $("#ele2regEsp").css('display', 'block');
+            
+        }
+        
+    });
+    
+    // Opção de registro de pessoa jurídica
+    $(".reg_pjuridica").click(function(){
+        
+        if($(this).val() == 'J'){
+            
+            $("#juntaComercial").css('display', 'block');
+            $("#crpj").css('display', 'none');
+            $("#orgao").css('display', 'none');
+        
+        }else if($(this).val() == 'C'){
+            
+            $("#juntaComercial").css('display', 'none');
+            $("#crpj").css('display', 'block');
+            $("#orgao").css('display', 'none');
+            
+        }else if($(this).val() == 'O'){
+            
+            $("#juntaComercial").css('display', 'none');
+            $("#crpj").css('display', 'none');
+            $("#orgao").css('display', 'block');
+            
+        }else{
+            
+            $("#juntaComercial").css('display', 'none');
+            $("#crpj").css('display', 'none');
+            $("#orgao").css('display', 'none');
+            
+        }
+        
+    });
+    
+    // Adiciona Cnae
+    $("#addCnae").click(function(){
+        var contCnae = $('[name*="cnae_sec"]').length;
+        var addCnae = '<div class="col-md-2">';
+            addCnae += '<label for="cnaeSec">Cnae secund&aacute;rio&nbsp';
+            addCnae += '<a class="removeEspec" onclick="$(this).parent().parent().remove();" href="#addEspecialidade">X</a>';
+            addCnae += '</label>';
+            addCnae += '<input type="text" name="cnae_sec['+contCnae+']" value="" data="cnae_sec['+contCnae+']" id="cnae_sec['+contCnae+']" class="form-control"  />';                                    
+            addCnae += '</div>';
+  
+            $("#cnaesSecundarios").append(addCnae);
+            
+            $(this).estiloCamposDinamicos('cnae');
+            
+            $('[name*="cnae_sec"]').each(function () {
+                //dump(this);
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "O campo CNAE Secund&aacute;rio &eacute; indispens&aacute;vel"
+                    }
+                });
+            });
+            
+            
+    });
+    
+    // Adiciona áreas
+    $("#addAreas").click(function(){
+
+        var contArea = $('[name*="area_sec"]').length;
+        var addArea = '';
+        
+            if(contArea == 0){
+                addArea += '';
+            }else{
+                addArea += '<div id="auxDiv'+contArea+'" class="col-md-1">&nbsp</div>';
+            }
+        
+            addArea += '<div class="col-md-2 add">';
+            addArea += '<label for="area_sec['+contArea+']">&Aacute;rea de atua&ccedil;&atilde;o&nbsp';
+            addArea += '<a class="removeEspec" onclick="$(this).parent().parent().remove();$(\'#auxDiv'+contArea+'\').remove();" href="#addAreas">X</a>';
+            addArea += '</label>';
+            addArea += '<select style="width:100%" class="form-control" id="area_sec['+contArea+']" name="area_sec['+contArea+']">';
+            addArea += '<option value=""></option>';
+            addArea += '<option value="1">Engenharia Civil</option>';
+            addArea += '<option value="2">Robotica</option>';
+            addArea += '<option value="3">Advocacia</option>';
+            addArea += '<option value="4">Desenvolvimento de sistemas</option>';
+            addArea += '</select>';
+            addArea += '</div>';
+    
+            $("#areasDiversas").append(addArea);  
+            
+            $(this).estiloCamposDinamicos('area');   
+            
+            $('[name^="area_sec"]').each(function () {
+                //dump(this);
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "O campo &Aacute;rea de Atua&ccedil;&atilde;o &eacute; indispens&aacute;vel"
+                    }
+                });
+                
+                $( this ).combobox();
+                
+            });    
+            
+    });
+    
+    // Valida o formulário
+	$("#formEmpresa").validate({
+		debug: false,
+		rules: {
+            nr_cnpj: {
+                required: true,
+                minlength: 18
+			},
+			nm_razao_social: {
+                required: true
+            },
+            sigla_pjuridica: {
+                required: true
+            },
+            tx_tel_princ: {
+                required: true,
+                minlength: 13
+			},
+		},
+		messages: {
+            nr_cnpj: {
+                required: "O campo CNPJ &eacute; indispens&aacute;vel",
+                minlength: "Informe o CNPJ completo."
+            },
+			nm_razao_social: {
+                required: "O campo Raz&atilde;o Social &eacute; indispens&aacute;vel"
+            },
+            sigla_pjuridica: {
+                required: "O campo Sigla &eacute; indispens&aacute;vel"
+            },
+            tx_tel_princ: {
+                required: "O campo Tel. 1 &eacute; indispens&aacute;vel",
+                minlength: "Informe o Tel. 1 completo."
+            },
+	   },
+       ignore :  [], // Persiste e obriga preechimento de todos os campos inválidos em todas as abas do accordion antes da submissão
+   });
+
+
+// Rastrei a aba do accordion que tem campos para serem validados e a abre   
+function ShowPanel() {
+    // Valida o formulário
+    var validator = $("#formEmpresa").validate();
+    
+    // Se o número de campos inválidos for maior que ZERO (Há campos incorretos)
+    if (validator.numberOfInvalids() > 0) {
+        
+        // Procuro a primeira ocorrência da classe erro nos inputs
+        var index = $("input.error")
+                        // Pego a primeira div que encontrar num nível mais acima do input de acordo com a classe informada
+                        .closest("div.ui-accordion-content")
+                        // Pega a posição dessa div
+                        .index("div.ui-accordion-content");
+        if(index == -1){
+            index = 1;
+        }
+        
+        // Coloca a posição encontrada no accordion para que possa expandir a aba correpondente a posição
+        $("#accordion").accordion("option", "active", index);
+    } 
+}
+
+// Formulário - Se ao salvar o validate retornar FALSE chama a função ShowPanel()
+$("#finalizar").click(function () { if (!$("#formEmpresa").valid()) { ShowPanel(); } });
+
+//$("#formEmpresa").data("validator").settings.ignore = [];       
+    
+});
+
+// Abre o próximo acoordion de acordo com a validação
+$.fn.proximoAcoordion = function(proximo) { 
+    //alert(proximo);
+    //$('#formEmpresa').valid();
+    // Valida o formulário
+    var validator = $("#formEmpresa").validate();
+    
+    var abrirAcoordion = 0;
+    var abrirDiv = '';
+    
+    // Se o possui algum campo que precisa ser preenchido
+    if (validator.numberOfInvalids() > 0) {
+        
+        // Procuro a primeira ocorrência da classe erro nos inputs
+        var index = $("input.error")
+                        // Pego a primeira div que encontrar num nível mais acima do input de acordo com a classe informada
+                        .closest("div.ui-accordion-content")
+                        // Pega a posição dessa div
+                        .index("div.ui-accordion-content");
+        
+        // Se existe algum campo que precisa ser preenchido no quadro 1 (index 0)
+        if(index == 0 && proximo == 1){
+            abrirAcoordion = 0;
+            abrirDiv = '.eleInicio';
+        }else if(index == 1 && proximo == 2) {
+            abrirAcoordion = 1;
+            abrirDiv = '.eleEndOficial';
+        }else if(index == 2 && proximo == 3){
+            abrirAcoordion = 2;
+            abrirDiv = '.eleInscricao';
+        }else if(index == 3 && proximo == 4){
+            abrirAcoordion = 3;
+            abrirDiv = '.eleCnaes';
+        }else if(index == 4 && proximo == 5){
+            abrirAcoordion = 4;
+            abrirDiv = '.eleAtuacao';
+        }else if(index == -1){
+            
+            if(proximo == 2){
+                abrirAcoordion = 1;
+                abrirDiv = '.eleEndOficial';
+            }
+            
+            if(proximo == 3){
+                abrirAcoordion = 2;
+                abrirDiv = '.eleInscricao';
+            }
+            /*
+            if(proximo == 4){
+                abrirAcoordion = 4;
+                abrirDiv = '.eleAtuacao';
+            }
+            */
+            if(proximo == 5){
+                abrirAcoordion = 4;
+                abrirDiv = '.eleAtuacao';
+            }
+            
+        }else{
+            abrirAcoordion = 5;
+            abrirDiv = '.eleObs';
+        }                
+          
+        $(abrirDiv).css("display", "block");
+        $("#accordion").accordion("option", "active", abrirAcoordion);  
+                      
+    }else{
+            
+        /*abrirAcoordion = 5;
+        abrirDiv = '.eleObs';*/
+    
+        if(proximo == 1){
+            abrirAcoordion = 1;
+            abrirDiv = '.eleEndOficial';
+        }
+        
+        if(proximo == 2){
+            abrirAcoordion = 2;
+            abrirDiv = '.eleInscricao';
+        }
+        
+        if(proximo == 3){
+            abrirAcoordion = 3;
+            abrirDiv = '.eleCnaes';
+        }
+        
+        if(proximo == 4){
+            abrirAcoordion = 4;
+            abrirDiv = '.eleAtuacao';
+        }
+        
+        if(proximo == 5){
+            abrirAcoordion = 5;
+            abrirDiv = '.eleObs';
+        }
+        
+        $(abrirDiv).css("display", "block");
+        $("#accordion").accordion("option", "active", abrirAcoordion); 
+        
+    }
+    
+};
+
+// Mascaras do formulário
+$.fn.mascaras = function() { 
+    
+    $('.cep').mask('00000-000');
+    $('.telefoneFixo').mask("(00)0000-0000");
+    $('.telefoneCelular').mask("(00)00000-0000");
+    $('.cpf').mask('000.000.000-00');
+    $('.data').mask("00/00/0000");
+    $('.cnpj').mask('99.999.999/9999-99');
+    
+    // Criado para evitar bug na função (ShowPanel) que identifica a aba que possui campos obrigatórios não preenchidos
+    $('.generica').mask('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+
+};
+
+// Estilização dos campos dinâmicos
+$.fn.estiloCamposDinamicos = function(campo) {
+    
+    $("input[name^='"+campo+"']").css('font-size','15px');
+    $("input[name^='"+campo+"']").css('font-weight','bold');
+    $("input[name^='"+campo+"']").css('padding-left','0px');
+    $("input[name^='"+campo+"']").css('color','#1c94c4');
+
+};
+
+// Calendário
+$.fn.calendario = function() { 
+    /*
+    CONFIGURA O CALENDÁRIO DATEPICKER NO INPUT INFORMADO
+    */
+    $(".data").datepicker({
+    	dateFormat: 'dd/mm/yy',
+    	dayNames: ['Domingo','Segunda','Ter&ccedil;a','Quarta','Quinta','Sexta','S&aacute;bado','Domingo'],
+    	dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    	dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','S&aacute;b','Dom'],
+    	monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    	monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    	nextText: 'Pr&oacute;ximo',
+    	prevText: 'Anterior'/*,
+        
+        // Traz o calendário input datepicker para frente da modal
+        beforeShow :  function ()  { 
+            setTimeout ( function (){ 
+                $ ( '.ui-datepicker' ). css ( 'z-index' ,  99999999999999 ); 
+            },  0 ); 
+        } */
+    });
+
+};
+	
+    </script>
+
+</body>
+
+</html>

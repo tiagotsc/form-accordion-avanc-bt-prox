@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Lapido Barbosa & Associados</title>
+    
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/modern-business.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/personalizado.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- jQuery UI -->
+    <script src="assets/js/jquery-ui/jquery-ui.js"></script>
+    <link href="assets/js/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+    <!-- Bootstrap Core JavaScript -->
+    <!--<script src="assets/js/bootstrap.min.js"></script>-->
+    
+    <!-- Jquery Validate -->
+    <script src="assets/js/jquery.validate.min.js"></script>
+    
+    <!-- Jquery Mask -->
+    <script src="assets/js/jquery.mask.min.js"></script>
+    
+    <!-- Jquery form wizard -->
+    <!--<script src="assets/js/form-wizard/jquery.form.wizard.js"></script>-->
+  <style>
+  .custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+  </style>
+</head>
+
+<body style="padding-top: 0px;">
+    <div id="dadosUser" class="container">
+        <div id="olaUser" class="col-md-6">
+            <strong>Ol&aacute;, Marcel Lapido Barbosa</strong><br />
+            <strong>Este &eacute; seu acesso 123. Acesso anterior em 01/02/2015 &agrave;s 15h35</strong>
+        </div>
+        <div id="optionUser" class="col-md-5 text-right">
+            <a href="#">Meus Dados</a>&nbsp;&nbsp;&nbsp;
+            <a href="#">Trocar Senha</a>&nbsp;&nbsp;&nbsp;
+            <a href="#">Manual</a>                                
+        </div>
+        <div id="btn_sair" class="col-md-1 text-right">
+            <button type="button" onclick="sair()" class="btn btn-success">Sair</button>
+        </div>
+    </div>    
+	<!-- Navigation -->
+    <nav class="navbar navbar-inverse" style="border-radius: 0px;" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Lapido Barbosa & Associados</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="index.html">In&iacute;cio</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle active" data-toggle="dropdown">Pessoa Jur&iacute;dica <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="index.html">Listar</a>
+							</li>
+							<li class="active">
+								<a href="form-empresa.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Representantes legais <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Listar</a>
+							</li>
+							<li>
+								<a href="form-fisica.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projetos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Listar</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contratos <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Gerenciar</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir manual</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir com roteiro</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usu&aacute;rios <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="portfolio-1-col.html">Listar</a>
+							</li>
+							<li>
+								<a href="portfolio-2-col.html">Incluir</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Cadastrar representante legal
+                    <!--<small>Subheading</small>-->
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">In&iacute;cio</a>
+                    </li>
+                    <li class="active">Representantes legais / Cadastrar representante legal</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <form method="POST" action="http://localhost/laravel/public/foo/bar" accept-charset="UTF-8" id="formFisica"><input name="_token" type="hidden" value="fPcrCr7qBt0WjZ7iTbEYafHGEV5gdjTnJDKCo0by"> 
+            <div id="accordion">
+                <h3 class="eleInicio">Dados do Representante Legal</h3>
+                <div class="eleInicio">
+                    <div class="col-md-2">
+                        <label for="nr_cpf">CPF</label>
+                        <input class="form-control cpf" name="nr_cpf" type="text" id="nr_cpf">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nome_pfisica">Nome</label>
+                        <input class="form-control" name="nome_pfisica" type="text" id="nome_pfisica">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nm_artistico">Nome Art&iacute;stico / Profissional</label>
+                        <input class="form-control" name="nm_artistico" type="text" id="nm_artistico">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dt_nascimento">Data de Nascimento</label>
+                        <input class="form-control" name="dt_nascimento" type="text" id="dt_nascimento">
+                    </div>		
+                    <div class="col-md-3">
+                        <label for="cd_sexo">Sexo</label>
+                        <select class="form-control" id="cd_sexo" name="cd_sexo"><option value="" selected="selected"></option><option value="M">Masculino</option><option value="F">Feminino</option></select>
+                    </div>	
+                    <div class="col-md-3">
+                        <label for="cd_nacionalidade">Nacionalidade</label>
+                        <input class="form-control" name="cd_nacionalidade" type="text" id="cd_nacionalidade">
+                    </div>	
+                    <div class="col-md-3">
+                        <label for="cd_est_civil">Estado Civil</label>
+                        <select class="form-control" id="cd_est_civil" name="cd_est_civil"><option value="L">Solteiro</option><option value="S">Casado</option></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="nr_ident">N&uacute;mero da Identidade</label>
+                        <input class="form-control" name="nr_ident" type="text" id="nr_ident">
+                    </div>	
+                    <div class="col-md-3">
+                        <label for="tx_org_emis_ident">Org&atilde;o</label>
+                        <input class="form-control" name="tx_org_emis_ident" type="text" id="tx_org_emis_ident">
+                    </div>	
+                    <div class="col-md-1">
+                        <label for="uf_ident">UF</label>
+                        <select class="form-control" id="uf_ident" name="uf_ident"><option value="L">RJ</option><option value="S">SP</option></select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="cd_ocupacao">Ocupa&ccedil;&atilde;o.</label>
+                        <input class="form-control" name="cd_ocupacao" type="text" id="cd_ocupacao">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cd_cargo">Cargo</label>
+                        <input class="form-control" name="cd_cargo" type="text" id="cd_cargo">
+                    </div>		
+                    <div class="col-md-2">
+                        <label for="tx_tel_res">Telefone</label>
+                        <input class="form-control telefoneFixo" name="tx_tel_res" type="text" id="tx_tel_res">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="tx_cel_pes">Celular</label>
+                        <input class="form-control telefoneCelular" name="tx_cel_pes" type="text" id="tx_cel_pes">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tx_email_pes">E-mail</label>
+                        <input class="form-control" name="tx_email_pes" type="text" id="tx_email_pes">
+                    </div>
+                    <div class="col-md-12 text-right">  
+                        <button type="button" class="btn btn-primary btnMarginRight">Gravar</button>          
+                        <button type="button" class="btn btn-primary pull-right" onclick='checaValidacao(); $(this).proximoAcoordion(1)'>Avan&ccedil;ar</button>
+                    </div>
+                </div>
+                <h3 class="ocultar eleEndRes">Endere&ccedil;o Residencial</h3>
+                <div class="ocultar eleEndRes">
+                    <div class="col-md-2">
+                        <label for="tx_cep">CEP</label>
+                        <input class="form-control cep" name="tx_cep" type="text" id="tx_cep">
+                    </div>
+                    <div class="col-md-8">
+                        <label for="endereco">Tipo e Nome do Logradouro</label>
+                        <input class="form-control" name="endereco" type="text" id="endereco">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="numero">N&ordm;</label>
+                        <input class="form-control" name="numero" type="text" id="numero">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="complemento">Complemento</label>
+                        <input class="form-control" name="complemento" type="text" id="complemento">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="bairro">Bairro</label>
+                        <input class="form-control" name="bairro" type="text" id="bairro">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cidade">Cidade</label>
+                        <select class="form-control" id="cidade" name="cidade"><option value="L">Rio de Janeiro</option><option value="S">S&atilde;o Paulo</option></select>
+                    </div>
+                    <div class="col-md-1">
+                        <label for="uf">UF</label>
+                        <select class="form-control" id="uf" name="uf"><option value="L">RJ</option><option value="S">SP</option></select>
+                    </div> 
+                    <div class="col-md-12 text-right">            
+                          <button type="button" class="btn btn-primary pull-right" onclick='checaValidacao(); $(this).proximoAcoordion(2)'>Avan&ccedil;ar</button>
+                    </div>
+                 </div>
+                 <h3 class="ocultar eleObs">Anota&ccedil;&otilde;es</h3>
+                 <div class="ocultar eleObs"> 
+                    <div class="col-md-12">
+                        <label for="anotacoes">Observa&ccedil;&otilde;es</label>
+                        <textarea class="form-control" name="anotacoes" cols="50" rows="10" id="anotacoes"></textarea>
+                    </div>
+                    <div class="col-md-12">		
+                        <input class="btn btn-primary pull-right" id="finalizar" type="submit" value="Finalizar">
+                    </div>
+                 </div>
+            </form>
+            </div>    
+        </div>
+        
+        <!-- /.row -->
+        <!-- /.row -->
+
+        <hr>
+        
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p><a href="#">Termos de Uso</a>&nbsp;&nbsp;<a href="#">Pol&iacute;tica de Privacidade</a>&nbsp;&nbsp;Copyright &copy; 2015 Lapido Barbosa e Associados</p>
+				</div>
+			</div>
+		</footer>
+        
+    </div>
+    <!-- /.container -->
+    
+    <script type="text/javascript">
+    
+function sair(){
+	location.href='index.html';
+}
+
+$(function() {
+    $( "#accordion" ).accordion({
+        collapsible: true, // Habilita a op��o de expandir e ocultar ao clicar
+        heightStyle: "content",
+        active: 0
+    });
+});
+
+$(document).ready(function(){   
+        
+    $(this).mascaras();
+    $(this).calendario();
+    
+    //Oculta div ao iniciar
+    $(".ocultar").css('display', 'none');
+    $("#divEndAtuacao").css('display', 'none');
+    $("#juntaComercial").css('display', 'none');
+    $("#crpj").css('display', 'none');
+    $("#orgao").css('display', 'none');
+    
+    
+    // Valida o formul�rio
+	$("#formFisica").validate({
+		debug: false,
+		rules: {
+			/*nr_cpf: {
+                required: true,
+                minlength: 14
+            },*/
+            nome_pfisica: {
+                required: true
+			},
+            cd_sexo: {
+				required: true
+			}
+		},
+		messages: {
+			/*nr_cpf: {
+                required: "O campo CPF &eacute; indispens&aacute;vel.",
+                minlength: "Digite o CPF completo"
+            },*/
+            nome_pfisica: {
+                required: "O campo Nome &eacute; indispens&aacute;vel"
+            },
+            cd_sexo: {
+				required: "O campo Sexo &eacute; indispens&aacute;vel"
+			}
+	   },
+       ignore :  [], // Persiste e obriga preechimento de todos os campos inv�lidos em todas as abas do accordion antes da submiss�o
+   });
+
+
+// Formul�rio - Se ao salvar o validate retornar FALSE chama a fun��o ShowPanel()
+$("#finalizar").click(function () { if (!$("#formFisica").valid()) { ShowPanel(); } });
+
+//$("#formEmpresa").data("validator").settings.ignore = [];       
+    
+});
+
+// Mascaras do formul�rio
+$.fn.mascaras = function() { 
+    
+    $('.cep').mask('00000-000');
+    $('.telefoneFixo').mask("(00)0000-0000");
+    $('.telefoneCelular').mask("(00)00000-0000");
+    $('.cpf').mask('000.000.000-00');
+    $('.data').mask("00/00/0000");
+    $('.cnpj').mask('99.999.999/9999-99');
+
+};
+
+// Estiliza��o dos campos din�micos
+$.fn.estiloCamposDinamicos = function(campo) {
+    
+    $("input[name^='"+campo+"']").css('font-size','15px');
+    $("input[name^='"+campo+"']").css('font-weight','bold');
+    $("input[name^='"+campo+"']").css('padding-left','0px');
+    $("input[name^='"+campo+"']").css('color','#1c94c4');
+
+};
+
+// Calend�rio
+$.fn.calendario = function() { 
+    /*
+    CONFIGURA O CALEND�RIO DATEPICKER NO INPUT INFORMADO
+    */
+    $(".data").datepicker({
+    	dateFormat: 'dd/mm/yy',
+    	dayNames: ['Domingo','Segunda','Ter&ccedil;a','Quarta','Quinta','Sexta','S&aacute;bado','Domingo'],
+    	dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    	dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','S&aacute;b','Dom'],
+    	monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    	monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    	nextText: 'Pr&oacute;ximo',
+    	prevText: 'Anterior'/*,
+        
+        // Traz o calend�rio input datepicker para frente da modal
+        beforeShow :  function ()  { 
+            setTimeout ( function (){ 
+                $ ( '.ui-datepicker' ). css ( 'z-index' ,  99999999999999 ); 
+            },  0 ); 
+        } */
+    });
+
+};
+
+// Verifica a valida��o do formul�rio e caso n�o passe submite para mostrar os campos que precisam de valida��o
+function checaValidacao(proximo){
+    
+    // N�o passa na valida��o
+    if (!$('#formFisica').valid()){
+        $('#formFisica').submit();
+    }else{
+        $(this).proximoAcoordion(proximo);
+    }
+    
+}
+
+// Rastrei a aba do accordion que tem campos para serem validados e a abre   
+function ShowPanel() {
+    // Valida o formul�rio
+    var validator = $("#formFisica").validate();
+    
+    // Se o n�mero de campos inv�lidos for maior que ZERO (H� campos incorretos)
+    if (validator.numberOfInvalids() > 0) {
+        
+        // Procuro a primeira ocorr�ncia da classe erro nos inputs
+        var index = $("input.error")
+                        // Pego a primeira div que encontrar num n�vel mais acima do input de acordo com a classe informada
+                        .closest("div.ui-accordion-content")
+                        // Pega a posi��o dessa div
+                        .index("div.ui-accordion-content");
+                        
+        if(index == -1){
+            index = 0;
+        }
+        
+        // Coloca a posi��o encontrada no accordion para que possa expandir a aba correpondente a posi��o
+        $("#accordion").accordion("option", "active", index);
+    } 
+}
+
+// Abre o pr�ximo acoordion de acordo com a valida��o
+$.fn.proximoAcoordion = function(proximo) { 
+    //alert(proximo);
+    //$('#formEmpresa').valid();
+    // Valida o formul�rio
+    var validator = $("#formFisica").validate();
+    
+    var abrirAcoordion = 0;
+    var abrirDiv = '';
+    
+    // Se o possui algum campo que precisa ser preenchido
+    if (validator.numberOfInvalids() > 0) {
+        
+        // Procuro a primeira ocorr�ncia da classe erro nos inputs
+        var index = $("input.error")
+                        // Pego a primeira div que encontrar num n�vel mais acima do input de acordo com a classe informada
+                        .closest("div.ui-accordion-content")
+                        // Pega a posi��o dessa div
+                        .index("div.ui-accordion-content");
+
+        // Se existe algum campo que precisa ser preenchido no quadro 1 (index 0)
+        if(index == 0 && proximo == 1){
+            abrirAcoordion = 0;
+            abrirDiv = '.eleInicio';
+        }else if(index == 0 && proximo == 2){
+            abrirAcoordion = 0;
+            abrirDiv = '.eleInicio';
+        }else if(index == 1 && proximo == 2){
+            abrirAcoordion = 1;
+            abrirDiv = '.eleEndRes';
+        }else if(index == -1){
+            
+            if(proximo == 1){
+                abrirAcoordion = 0;
+                abrirDiv = '.eleInicio';
+            }
+            
+        }else{
+            abrirAcoordion = 2;
+            abrirDiv = '.eleObs';
+        }                
+          
+        $(abrirDiv).css("display", "block");
+        $("#accordion").accordion("option", "active", abrirAcoordion);  
+                      
+    }else{
+    
+        if(proximo == 1){
+            abrirAcoordion = 1;
+            abrirDiv = '.eleEndRes';
+        }
+        
+        if(proximo == 2){
+            abrirAcoordion = 2;
+            abrirDiv = '.eleObs';
+        }
+        
+        $(abrirDiv).css("display", "block");
+        $("#accordion").accordion("option", "active", abrirAcoordion); 
+        
+    }
+    
+};		
+    </script>
+
+</body>
+
+</html>
